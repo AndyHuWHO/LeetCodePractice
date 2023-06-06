@@ -1,4 +1,8 @@
-package TwoSum;
+package twosum;
+
+import java.util.Arrays;
+import java.util.Random;
+
 public class Main {
     public static void main(String[] args) {
         // Create an instance of the Solution class
@@ -21,6 +25,34 @@ public class Main {
         int target3 = 6;
         int[] result3 = solution.hmTwoSum(nums3, target3);
         System.out.println("Test Case 3: " + result3[0] + ", " + result3[1]); // Expected output: 0, 1
+
+
+
+        int arraySize = 20;
+        int minRange = -30;
+        int maxRange = 30;
+        int target = 17;
+        int[] nums = generateRandomArray(arraySize, minRange, maxRange);
+        // Print the generated array
+        System.out.println("Generated Array: " + Arrays.toString(nums));
+
+ 
+        // Invoke the twoSum method with the generated array and target
+        int[] result = solution.bfTwoSum(nums, target);
+ 
+        // Print the result
+        System.out.println("Result: " + Arrays.toString(result));
+
     }
+
+    private static int[] generateRandomArray(int size, int min, int max) {
+        Random random = new Random();
+        int[] array = new int[size];
+        for (int i = 0; i < size; i++) {
+            array[i] = random.nextInt((max - min) + 1) + min;
+        }
+        return array;
+    }
+
 }
 
