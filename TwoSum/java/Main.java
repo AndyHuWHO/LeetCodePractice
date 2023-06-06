@@ -1,4 +1,4 @@
-package twosum;
+package twosum.java;
 
 import java.util.Arrays;
 import java.util.Random;
