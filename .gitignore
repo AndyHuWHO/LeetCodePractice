@@ -1,0 +1,11 @@
+# Ignore compiled files
+*.class
+*.jar
+*.war
+*.ear
+
+# Ignore build directories
+target/
+build/
+bin/
+out/
