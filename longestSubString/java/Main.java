@@ -1,5 +1,10 @@
 package longestSubString.java;
 
+import java.util.HashSet;
+import java.util.Random;
+
+
+
 public class Main {
     public static void main(String[] args) {
         Solution longestSubstringSolution = new Solution();
@@ -33,5 +38,58 @@ public class Main {
         int expected5 = 1;
         int result5 = longestSubstringSolution.swLengthOfLongestSubstring(s5);
         System.out.println("Test case 5: " + (result5 == expected5 ? "Passed" : "Failed"));
+
+
+
+
+        Random random = new Random();
+        int numTests = 10; // Number of random tests to perform
+
+        for (int i = 0; i < numTests; i++) {
+            String randomString = generateRandomString(random.nextInt(20) + 1); // Random string length between 1 and 20
+            int result = longestSubstringSolution.swLengthOfLongestSubstring(randomString);
+            int expected = longestSubstringSolution.bfLengthOfLongestSubstring(randomString); // Use the brute force solution to calculate expected result
+            System.out.println("Test case" + i + (result == expected ? ": Passed" : ": Failed"));
+        }
+
     }
+
+
+    private static String generateRandomString(int length) {
+        Random random = new Random();
+        StringBuilder sb = new StringBuilder();
+        String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        for (int i = 0; i < length; i++) {
+            int randomIndex = random.nextInt(characters.length());
+            char randomChar = characters.charAt(randomIndex);
+            sb.append(randomChar);
+        }
+
+        return sb.toString();
+    }
+
+    // Brute force solution to calculate the expected result
+    private static int bruteForceSolution(String s) {
+        int n = s.length();
+        int longest = 0;
+        HashSet<Character> subString = new HashSet<>();
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                if (subString.contains(s.charAt(j))) {
+                    longest = Math.max(subString.size(), longest);
+                    subString.clear();
+                    break;
+                } else {
+                    subString.add(s.charAt(j));
+                }
+            }
+        }
+
+        return longest;
+    }
+
+
+
 }
