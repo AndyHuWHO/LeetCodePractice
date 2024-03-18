@@ -46,12 +46,14 @@ class Solution {
     public int[] tpTwoSum (int[] nums, int target) {
         int[] result = new int[2];
         int[] sortedNums = nums.clone();
+        // sort take O(logn)
         Arrays.sort(sortedNums);
 
         int left = 0;
         int n = nums.length;
         int right = n - 1;
 
+        // find the complement numbers O(n)
         while (left < right) {
             int sum = sortedNums[left] + sortedNums[right];
             if(sum == target) {
@@ -62,13 +64,14 @@ class Solution {
                 right --;
             }
         }
-
+        // find index for left, O(n)
         for (int i=0; i<n; i++) {
             if (nums[i] == sortedNums[left]) {
                 result[0] = i;
                 break;
             }
         }
+        // find index for right, O(n)
         for (int i=n; i>0; i--) {
             if (nums[i] == sortedNums[right]) {
                 result[1] = i;
