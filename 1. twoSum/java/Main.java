@@ -3,6 +3,7 @@ package twoSum.java;
 import java.util.Arrays;
 import java.util.Random;
 
+
 public class Main {
     public static void main(String[] args) {
         // Create an instance of the Solution class
