@@ -12,7 +12,6 @@ public class MergeTwoSortedArrays {
                 nums1[p] = nums2[p2];
                 p--;
                 p2--;
-
             }
         }
     }

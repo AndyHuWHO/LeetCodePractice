@@ -24,3 +24,6 @@ public class solution {
   }
     
 }
+
+// initiate k =0
+// for i = 0 to strs.length,  s = string[i].charAt(k)
