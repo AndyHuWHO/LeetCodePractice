@@ -9,19 +9,19 @@ public class Solution {
         for (int i=0; i<n; i++) {
             set.add(A[i]);
         }
-        // while (set.contains(smallest)) {
-        //     smallest++;
-        // }
-        // return smallest;
-        // Step 3: Use a for loop to check for the smallest missing positive integer
-        for (int i = 1; i <= n; i++) {
-            if (!set.contains(i)) {
-                return i; // Return the smallest missing positive integer
-            }
+        while (set.contains(smallest)) {
+            smallest++;
         }
+        return smallest;
+        // // Step 3: Use a for loop to check for the smallest missing positive integer
+        // for (int i = 1; i <= n; i++) {
+        //     if (!set.contains(i)) {
+        //         return i; // Return the smallest missing positive integer
+        //     }
+        // }
         
-        // Step 4: If no number is missing from 1 to A.length, return A.length + 1
-        return A.length + 1;
+        // // Step 4: If no number is missing from 1 to A.length, return A.length + 1
+        // return A.length + 1;
 
     }
 
