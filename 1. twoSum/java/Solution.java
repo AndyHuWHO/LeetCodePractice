@@ -1,4 +1,5 @@
 package twoSum.java;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,6 +23,7 @@ class Solution {
 
 
     //hashMap solution
+    // The idea is to use a data structure to hold all the int and their indices, and have an O(1) lookup time
     public int[] hmTwoSum(int[] nums, int target) {
         int n = nums.length;
         int [] result = new int[2];
